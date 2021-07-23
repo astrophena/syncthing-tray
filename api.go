@@ -82,18 +82,17 @@ func (c *client) send(method, path string, wantStatus int) ([]byte, error) {
 		return nil, err
 	}
 
-	slurp, err := io.ReadAll(rr.Body)
+	b, err := io.ReadAll(rr.Body)
 	if err != nil {
 		return nil, err
 	}
 	defer rr.Body.Close()
 
 	if rr.StatusCode != wantStatus {
-		err := fmt.Errorf("HTTP %s: %s (expected %v)", rr.Status, slurp, wantStatus)
-		return nil, err
+		return nil, fmt.Errorf("HTTP: %s %s, want %d, but returned %d", method, path, wantStatus, rr.StatusCode)
 	}
 
-	return slurp, nil
+	return b, nil
 }
 
 func (c *client) get(path string) ([]byte, error) {
