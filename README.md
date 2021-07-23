@@ -5,7 +5,7 @@
 
 It's very rough work in progress.
 
-![Screnshot](screenshot.png)
+![Screenshot](screenshot.png)
 
 ## License
 
