@@ -6,7 +6,7 @@ GOOS    = "windows"
 GOARCH  = "amd64"
 LDFLAGS = "-s -w -H windowsgui -buildid="
 
-.PHONY: build clean
+.PHONY: build clean vet
 
 build:
 	@ GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=0 go build -trimpath -ldflags=$(LDFLAGS)
