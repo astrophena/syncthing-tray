@@ -1,6 +1,6 @@
 module go.astrophena.name/syncthing-tray
 
-go 1.16
+go 1.17
 
 require (
 	github.com/getlantern/systray v1.1.0
